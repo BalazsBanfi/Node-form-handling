@@ -24,8 +24,6 @@ const validateUser = [
         .isInt({ min: 18, max: 120 }).withMessage(`Age ${ageErr}`),
     body("bio").trim()
         .isLength({ max: 200 }).withMessage(`Bio ${lengthBioErr}`),
-
-
 ];
 
 exports.usersListGet = (req, res) => {
@@ -87,4 +85,12 @@ exports.usersUpdatePost = [
 exports.usersDeletePost = (req, res) => {
     usersStorage.deleteUser(req.params.id);
     res.redirect("/");
+};
+
+exports.usersSearchGet = (req, res) => {
+    const find = req.query.searchUser;
+    res.render("search", {
+        title: "Found users list",
+        users: usersStorage.getSearchUsers(find)
+    });
 };

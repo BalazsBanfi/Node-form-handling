@@ -15,11 +15,18 @@
       <label for="email">Email: </label>
       <input type="email" name="email" id="email" required />
       <label for="age">Age: </label>
-      <input type="text" name="age" id="age" />
+      <input type="number" name="age" id="age" />
       <label for="bio">Bio: </label>
       <input type="textarea" name="bio" id="bio" />
       <button type="submit">Submit</button>
     </form>
+    <br />
+    <form action="/search" method="GET">
+      <label for="searchUser">Search name or email: </label>
+      <input type="text" name="searchUser" id="searchUser" required />
+      <button type="search">Search</button>
+    </form>
+
     <a href="/">Back to home</a>
   </body>
 </html>
